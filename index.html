@@ -159,11 +159,11 @@
       gap: 14px;
       flex-wrap: wrap;
       justify-content: center;
-      font-size: 10px;
-      letter-spacing: .35em;
-      color: var(--burgundy);
+      font-size: clamp(11px, 1.4vw, 14px);
+      letter-spacing: .18em;
+      color: var(--plum);
       text-transform: uppercase;
-      font-weight: 500;
+      font-weight: 700;
       margin-bottom: 44px;
       animation: fadeUp .9s .65s ease both;
     }
@@ -453,6 +453,26 @@
     .tc:hover { background: #FEFAF7; transform: translateY(-2px); }
     .tc:hover::after { transform: scaleX(1); }
 
+    /* open / "and more" card */
+    .tc-open {
+      background: linear-gradient(135deg, rgba(125,46,59,.05) 0%, rgba(201,169,110,.08) 100%);
+      border: 1px dashed rgba(201,169,110,.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .tc-open:hover { background: linear-gradient(135deg, rgba(125,46,59,.09) 0%, rgba(201,169,110,.13) 100%); }
+    .tc-open::after { display: none; }
+    .tc-open-icon {
+      font-size: 26px;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: block;
+      animation: spin-s 12s linear infinite;
+    }
+
     .tc-num {
       font-family: 'Cormorant Garamond', serif;
       font-size: 34px;
@@ -603,12 +623,32 @@
 
     /* leaders names row */
     .jaey-leaders {
-      font-size: 12.5px;
+      font-size: 13px;
       color: var(--warm-grey);
-      line-height: 1.8;
+      line-height: 2.2;
       font-style: italic;
-      max-width: 580px;
+      max-width: 600px;
       margin: 0 auto 32px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 6px 0;
+    }
+    .leader-name {
+      white-space: nowrap;
+    }
+    .leader-sep {
+      margin: 0 10px;
+      color: var(--gold);
+      font-style: normal;
+      opacity: .7;
+    }
+    .leader-more {
+      width: 100%;
+      text-align: center;
+      margin-top: 6px;
+      font-size: 12px;
     }
 
     /* instagram gradient button */
@@ -823,11 +863,16 @@
     .note-body {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
-      font-size: clamp(16px, 1.8vw, 20px);
-      line-height: 1.92;
+      font-size: clamp(17px, 1.9vw, 22px);
+      line-height: 2;
       color: var(--plum);
       margin-bottom: 48px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
+    .note-body p { margin-bottom: 0; }
     .note-body em { font-style: italic; color: var(--rose); }
 
     .sig { display: flex; flex-direction: column; align-items: center; gap: 10px; }
@@ -1042,7 +1087,18 @@
         Founded by Jaini Haria, CA, MBA (XLRI), ex-Investment Banker, Jaey was built on one belief: the kind of power dressing you see on your favourite TV shows should be accessible to every audacious woman, not just a privileged few.<br><br>
         With SizeYOU, Jaey ensures no woman needs to fit into standard sizes. Because your clothes should fit you, not the other way around. Backed by Startup India.
       </p>
-      <p class="jaey-leaders">Loved by Karishma Mehta · Sunayana Fozdar · Archana Gautam · Sumukhi Suresh<br>Swati Bhargava · Shweta Salve · Avanne Dubash · Sonia Shenoy<br><em>and many more celebrated women like you</em></p>
+      <div class="jaey-leaders">
+        <span class="leader-name">Radhika Gupta</span><span class="leader-sep">·</span>
+        <span class="leader-name">Karishma Mehta</span><span class="leader-sep">·</span>
+        <span class="leader-name">Sunayana Fozdar</span><span class="leader-sep">·</span>
+        <span class="leader-name">Archana Gautam</span><span class="leader-sep">·</span>
+        <span class="leader-name">Sumukhi Suresh</span><span class="leader-sep">·</span>
+        <span class="leader-name">Swati Bhargava</span><span class="leader-sep">·</span>
+        <span class="leader-name">Shweta Salve</span><span class="leader-sep">·</span>
+        <span class="leader-name">Avanne Dubash</span><span class="leader-sep">·</span>
+        <span class="leader-name">Sonia Shenoy</span>
+        <span class="leader-more">and many more celebrated women like you</span>
+      </div>
     </div>
     <div class="reveal">
       <iframe
@@ -1088,90 +1144,6 @@
       <div class="pquote">"She carries two homes in her heart and somehow makes both feel whole."</div>
     </div>
 
-  </div>
-</section>
-
-
-<div class="sec-divider"><div class="sec-divider-gem"></div></div>
-
-<!-- ========================
-     TOPICS
-======================== -->
-<section class="topics">
-
-  <svg class="tdoodle tdoodle-tl" viewBox="0 0 110 110" fill="none">
-    <path d="M10 10 Q55 0 100 10 Q110 55 100 100 Q55 110 10 100 Q0 55 10 10Z" stroke="#7D2E3B" stroke-width="1.5" fill="none"/>
-    <path d="M25 25 Q55 15 85 25 Q95 55 85 85 Q55 95 25 85 Q15 55 25 25Z" stroke="#C9746A" stroke-width="1" fill="none"/>
-    <circle cx="55" cy="55" r="10" stroke="#C9A96E" stroke-width="1" fill="none"/>
-  </svg>
-  <svg class="tdoodle tdoodle-br" viewBox="0 0 110 110" fill="none">
-    <path d="M10 10 Q55 0 100 10 Q110 55 100 100 Q55 110 10 100 Q0 55 10 10Z" stroke="#7D2E3B" stroke-width="1.5" fill="none"/>
-    <path d="M25 25 Q55 15 85 25 Q95 55 85 85 Q55 95 25 85 Q15 55 25 25Z" stroke="#C9746A" stroke-width="1" fill="none"/>
-    <circle cx="55" cy="55" r="10" stroke="#C9A96E" stroke-width="1" fill="none"/>
-  </svg>
-
-  <div class="si">
-    <p class="stag reveal">The Conversation</p>
-    <h2 class="reveal">We Are <em style="font-style:italic;color:var(--rose);">Ready</em> to Go There</h2>
-    <p class="tsub reveal">Nine threads. Nothing off-limits.</p>
-
-    <div class="tgrid">
-
-      <div class="tc reveal">
-        <div class="tc-num">01</div>
-        <div class="tc-title">"Beta sambhalega" then why is it always Beti?</div>
-        <div class="tc-line">Fathers stopped waiting for sons. Nobody announced it. But every daughter in this room felt it.</div>
-      </div>
-
-      <div class="tc reveal">
-        <div class="tc-num">02</div>
-        <div class="tc-title">The Investor's Squint</div>
-        <div class="tc-line">She walked in with a pitch deck and five years of proof. He leaned back and asked who her co-founder was.</div>
-      </div>
-
-      <div class="tc reveal">
-        <div class="tc-num">03</div>
-        <div class="tc-title">Two Homes, Zero Time for Yourself</div>
-        <div class="tc-line">Her parents miss her. His parents need her. She is the emotional glue of two homes and still shows up for herself last.</div>
-      </div>
-
-      <div class="tc reveal">
-        <div class="tc-num">04</div>
-        <div class="tc-title">He's "Assertive." She's "Difficult."</div>
-        <div class="tc-line">Same boardroom. Same tone. Same words. He gets a promotion. She gets a reputation.</div>
-      </div>
-
-      <div class="tc reveal">
-        <div class="tc-num">05</div>
-        <div class="tc-title">My Body Has a Diagnosis. My Calendar Doesn't Care.</div>
-        <div class="tc-line">PCOD. PCOS. Endometriosis. Chronic, invisible, and somehow expected to stay private. She shows up anyway. Always.</div>
-      </div>
-
-      <div class="tc reveal">
-        <div class="tc-num">06</div>
-        <div class="tc-title">We Chose Not to Have Kids. Now What?</div>
-        <div class="tc-line">A decision they made together. But only one of them is asked to justify it at every family dinner.</div>
-      </div>
-
-      <div class="tc reveal">
-        <div class="tc-num">07</div>
-        <div class="tc-title">The Loneliness at the Top</div>
-        <div class="tc-line">She made it. She is in the room. And she is completely, quietly alone up there.</div>
-      </div>
-
-      <div class="tc reveal">
-        <div class="tc-num">08</div>
-        <div class="tc-title">The Guilt That Comes With Every Win</div>
-        <div class="tc-line">She closed the deal, got the promotion, launched the brand. And then the guilt. About not being home. About wanting more.</div>
-      </div>
-
-      <div class="tc reveal">
-        <div class="tc-num">09</div>
-        <div class="tc-title">Mental Health Is Not a Weakness. Saying So Out Loud Is.</div>
-        <div class="tc-line">High-achieving women are the last to admit burnout. Because the world reads her vulnerability as incompetence.</div>
-      </div>
-
-    </div>
   </div>
 </section>
 
@@ -1230,6 +1202,95 @@
           <div class="ftxt">Your Jaey power fit. Come dressed in the version of yourself that commands the room.</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-divider"><div class="sec-divider-gem"></div></div>
+
+<!-- ========================
+     TOPICS
+======================== -->
+<section class="topics">
+
+  <svg class="tdoodle tdoodle-tl" viewBox="0 0 110 110" fill="none">
+    <path d="M10 10 Q55 0 100 10 Q110 55 100 100 Q55 110 10 100 Q0 55 10 10Z" stroke="#7D2E3B" stroke-width="1.5" fill="none"/>
+    <path d="M25 25 Q55 15 85 25 Q95 55 85 85 Q55 95 25 85 Q15 55 25 25Z" stroke="#C9746A" stroke-width="1" fill="none"/>
+    <circle cx="55" cy="55" r="10" stroke="#C9A96E" stroke-width="1" fill="none"/>
+  </svg>
+  <svg class="tdoodle tdoodle-br" viewBox="0 0 110 110" fill="none">
+    <path d="M10 10 Q55 0 100 10 Q110 55 100 100 Q55 110 10 100 Q0 55 10 10Z" stroke="#7D2E3B" stroke-width="1.5" fill="none"/>
+    <path d="M25 25 Q55 15 85 25 Q95 55 85 85 Q55 95 25 85 Q15 55 25 25Z" stroke="#C9746A" stroke-width="1" fill="none"/>
+    <circle cx="55" cy="55" r="10" stroke="#C9A96E" stroke-width="1" fill="none"/>
+  </svg>
+
+  <div class="si">
+    <p class="stag reveal">The Conversation</p>
+    <h2 class="reveal">We Are <em style="font-style:italic;color:var(--rose);">Ready</em> to Go There</h2>
+    <p class="tsub reveal">Nine threads to start. Nothing off-limits.</p>
+
+    <div class="tgrid">
+
+      <div class="tc reveal">
+        <div class="tc-num">01</div>
+        <div class="tc-title">"Beta sambhalega" then why is it always Beti?</div>
+        <div class="tc-line">Fathers stopped waiting for sons. Nobody announced it. But every daughter in this room felt it.</div>
+      </div>
+
+      <div class="tc reveal">
+        <div class="tc-num">02</div>
+        <div class="tc-title">The Investor's Squint</div>
+        <div class="tc-line">She walked in with a pitch deck and five years of proof. He leaned back and asked who her co-founder was.</div>
+      </div>
+
+      <div class="tc reveal">
+        <div class="tc-num">03</div>
+        <div class="tc-title">Two Homes, Zero Time for Yourself</div>
+        <div class="tc-line">Her parents miss her. His parents need her. She is the emotional glue of two homes and still shows up for herself last.</div>
+      </div>
+
+      <div class="tc reveal">
+        <div class="tc-num">04</div>
+        <div class="tc-title">He's "Assertive." She's "Difficult."</div>
+        <div class="tc-line">Same boardroom. Same tone. Same words. He gets a promotion. She gets a reputation.</div>
+      </div>
+
+      <div class="tc reveal">
+        <div class="tc-num">05</div>
+        <div class="tc-title">My Body Has a Diagnosis. My Calendar Doesn't Care.</div>
+        <div class="tc-line">PCOD. PCOS. Endometriosis. Chronic, invisible, and somehow expected to stay private. She shows up anyway. Always.</div>
+      </div>
+
+      <div class="tc reveal">
+        <div class="tc-num">06</div>
+        <div class="tc-title">We Chose Not to Have Kids. Now What?</div>
+        <div class="tc-line">A decision they made together. But only one of them is asked to justify it at every family dinner.</div>
+      </div>
+
+      <div class="tc reveal">
+        <div class="tc-num">07</div>
+        <div class="tc-title">The Loneliness at the Top</div>
+        <div class="tc-line">She made it. She is in the room. And she is completely, quietly alone up there.</div>
+      </div>
+
+      <div class="tc reveal">
+        <div class="tc-num">08</div>
+        <div class="tc-title">The Guilt That Comes With Every Win</div>
+        <div class="tc-line">She closed the deal, got the promotion, launched the brand. And then the guilt. About not being home. About wanting more.</div>
+      </div>
+
+      <div class="tc reveal">
+        <div class="tc-num">09</div>
+        <div class="tc-title">Mental Health Is Not a Weakness. Saying So Out Loud Is.</div>
+        <div class="tc-line">High-achieving women are the last to admit burnout. Because the world reads her vulnerability as incompetence.</div>
+      </div>
+
+      <div class="tc tc-open reveal">
+        <div class="tc-open-icon">✦</div>
+        <div class="tc-title" style="font-style:italic;">And whatever <em>you</em> bring to the room.</div>
+        <div class="tc-line">This conversation belongs to the women in it. Your stories, your threads, your questions. The agenda is yours to shape.</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1334,25 +1395,13 @@
     </div>
 
     <div class="note-body">
-      <p>We didn't want to create another Women's Day event.<br>
-      We wanted to create <em>the one that was missing.</em></p>
+      <p>We didn't want to create another Women's Day event. We wanted to create <em>the one that was missing.</em></p>
 
-      <br>
+      <p style="margin-top:1.6em;">The one where nobody performs. Where the stories are messy, real, and occasionally funny. Where a woman can say "I had a difficult day and still showed up" and the room simply <em>nods.</em></p>
 
-      <p>The one where nobody performs.<br>
-      Where the stories are messy, real, and occasionally funny.<br>
-      Where a woman can say "I had a PCOD flare and still showed up"<br>
-      and the room simply <em>nods.</em></p>
+      <p style="margin-top:1.6em;">We chose you for a reason. Your story matters, not despite its complexity, but <em>because</em> of it.</p>
 
-      <br>
-
-      <p>We chose you for a reason.<br>
-      Your story matters, not despite its complexity,<br>
-      but <em>because</em> of it.</p>
-
-      <br>
-
-      <p>We hope you'll join us.</p>
+      <p style="margin-top:1.6em;">We hope you'll join us.</p>
     </div>
 
     <div class="sig">
@@ -1365,15 +1414,6 @@
 </section>
 
 
-<!-- ========================
-     FOOTER
-======================== -->
-<footer>
-  <div class="footer-logo">
-    <img src="images/Jaey-Wordmark-White.png" alt="JAEY" />
-  </div>
-  <div class="ft-sub">Women's Day 2026 &middot; 7th March</div>
-</footer>
 
 
 <script>
