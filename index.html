@@ -28,6 +28,37 @@
       overflow-x: hidden;
     }
 
+    /* section divider */
+    .sec-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 0;
+      position: relative;
+      height: 1px;
+      background: transparent;
+    }
+    .sec-divider::before,
+    .sec-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,169,110,.25));
+    }
+    .sec-divider::after {
+      background: linear-gradient(to left, transparent, rgba(201,169,110,.25));
+    }
+    .sec-divider-gem {
+      width: 6px;
+      height: 6px;
+      border: 1px solid var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+      margin: 0 12px;
+      opacity: .6;
+    }
+
     /* grain overlay */
     body::after {
       content: '';
@@ -136,7 +167,8 @@
       margin-bottom: 44px;
       animation: fadeUp .9s .65s ease both;
     }
-    .pdot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    .pdot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; display: inline-block; vertical-align: middle; }
+    .pill-seg { white-space: nowrap; }
 
     .cta {
       display: inline-block;
@@ -307,7 +339,7 @@
        WHY / STATS
     --------------------------------- */
     .why { background: var(--cream); }
-    .why .si { display: grid; grid-template-columns: 1fr 1fr; gap: 68px; align-items: center; }
+    .why .si { max-width: 720px; margin: 0 auto; text-align: center; }
 
     .why h2 {
       font-family: 'Cormorant Garamond', serif;
@@ -327,10 +359,13 @@
     }
 
     .pquote {
-      border-left: 2px solid var(--gold);
-      padding: 14px 20px;
+      border-left: none;
+      border-top: 1px solid rgba(201,169,110,.3);
+      border-bottom: 1px solid rgba(201,169,110,.3);
+      padding: 20px 0;
       margin-top: 28px;
-      background: rgba(201,169,110,.07);
+      background: transparent;
+      text-align: center;
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       font-style: italic;
@@ -836,7 +871,6 @@
        RESPONSIVE
     --------------------------------- */
     @media (max-width: 860px) {
-      .why .si,
       .format .si { grid-template-columns: 1fr; gap: 44px; }
       .tgrid { grid-template-columns: repeat(2, 1fr); }
       .fmt-bg { display: none; }
@@ -944,12 +978,11 @@
   <p class="hero-sub">Five women. One closed room. The conversations that never make it to the feed.</p>
 
   <div class="date-pill">
+    <span class="pill-seg">7th March 2026, Saturday</span>
     <span class="pdot"></span>
-    7th March 2026, Saturday
+    <span class="pill-seg">An Intimate Evening</span>
     <span class="pdot"></span>
-    An Intimate Evening
-    <span class="pdot"></span>
-    Dress: Your Jaey Power Fit
+    <span class="pill-seg">By Invitation Only</span>
   </div>
 
   <div class="countdown-wrap" id="countdown">
@@ -965,6 +998,8 @@
   <div class="scroll-tick"><div class="ln"></div></div>
 </section>
 
+
+<div class="sec-divider"><div class="sec-divider-gem"></div></div>
 
 <!-- ========================
      ABOUT
@@ -989,6 +1024,8 @@
 </section>
 
 
+<div class="sec-divider"><div class="sec-divider-gem"></div></div>
+
 <!-- ========================
      ABOUT JAEY
 ======================== -->
@@ -1002,10 +1039,10 @@
       <h2>India's Most Loved<br><em>Power Dressing Brand.</em></h2>
       <div class="gbar"></div>
       <p class="about-jaey-body">
-        Founded by Jaini Haria, CA, MBA (XLRI), ex-Investment Banker, Jaey was built on one belief: every woman deserves to dress with confidence, whatever her size, budget or background.<br><br>
-        With 200+ curated styles, a size range from XXS to 6XL, and SizeYOU technology that tailors fit to your unique body, Jaey is redefining what it means to dress powerfully. Backed by Startup India.
+        Founded by Jaini Haria, CA, MBA (XLRI), ex-Investment Banker, Jaey was built on one belief: the kind of power dressing you see on your favourite TV shows should be accessible to every audacious woman, not just a privileged few.<br><br>
+        With SizeYOU, Jaey ensures no woman needs to fit into standard sizes. Because your clothes should fit you, not the other way around. Backed by Startup India.
       </p>
-      <p class="jaey-leaders">Loved by Karishma Mehta · Sunayana Fozdar · Archana Gautam · Sumukhi Suresh<br>Swati Bhargava · Shweta Salve · Avanne Dubash · Sonia Shenoy</p>
+      <p class="jaey-leaders">Loved by Karishma Mehta · Sunayana Fozdar · Archana Gautam · Sumukhi Suresh<br>Swati Bhargava · Shweta Salve · Avanne Dubash · Sonia Shenoy<br><em>and many more celebrated women like you</em></p>
     </div>
     <div class="reveal">
       <iframe
@@ -1032,6 +1069,8 @@
 </section>
 
 
+<div class="sec-divider"><div class="sec-divider-gem"></div></div>
+
 <!-- ========================
      WHY
 ======================== -->
@@ -1049,24 +1088,11 @@
       <div class="pquote">"She carries two homes in her heart and somehow makes both feel whole."</div>
     </div>
 
-    <div class="stats reveal">
-      <div class="scard">
-        <div class="snum">The Room</div>
-        <div class="slbl">Where a woman who commands boardrooms still has to fight to be heard in it.</div>
-      </div>
-      <div class="scard">
-        <div class="snum">8%</div>
-        <div class="slbl">Fortune 500 CEOs are women. That number has not moved in four years.</div>
-      </div>
-      <div class="scard">
-        <div class="snum">The Ask</div>
-        <div class="slbl">To be ambitious enough to get there, but not so ambitious that she makes anyone uncomfortable.</div>
-      </div>
-    </div>
-
   </div>
 </section>
 
+
+<div class="sec-divider"><div class="sec-divider-gem"></div></div>
 
 <!-- ========================
      TOPICS
@@ -1151,35 +1177,6 @@
 
 
 <!-- ========================
-     PODCAST BANNER
-======================== -->
-<section class="podcast-banner">
-  <div class="reveal">
-    <p class="stag">Now Streaming</p>
-    <h3>The Blue Carpet Talks</h3>
-    <p class="podcast-subtitle">Where powerful women sit down, open up, and speak the truth.</p>
-    <div class="podcast-links">
-      <a href="https://www.instagram.com/thebluecarpettalks/" target="_blank" rel="noopener" class="podcast-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-        </svg>
-        Follow on Instagram
-      </a>
-      <a href="https://www.youtube.com/@thebluecarpettalks" target="_blank" rel="noopener" class="podcast-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
-          <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
-        </svg>
-        Watch on YouTube
-      </a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ========================
      FORMAT
 ======================== -->
 <section class="format">
@@ -1238,6 +1235,8 @@
 </section>
 
 
+<div class="sec-divider"><div class="sec-divider-gem"></div></div>
+
 <!-- ========================
      HOST
 ======================== -->
@@ -1272,6 +1271,37 @@
   </div>
 </section>
 
+
+<!-- ========================
+     PODCAST BANNER
+======================== -->
+<section class="podcast-banner">
+  <div class="reveal">
+    <p class="stag">Now Streaming</p>
+    <h3>The Blue Carpet Talks</h3>
+    <p class="podcast-subtitle">Where powerful women sit down, open up, and speak the truth.</p>
+    <div class="podcast-links">
+      <a href="https://www.instagram.com/thebluecarpettalks/" target="_blank" rel="noopener" class="podcast-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        Follow on Instagram
+      </a>
+      <a href="https://www.youtube.com/@thebluecarpettalks" target="_blank" rel="noopener" class="podcast-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+          <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+        </svg>
+        Watch on YouTube
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<div class="sec-divider"><div class="sec-divider-gem"></div></div>
 
 <!-- ========================
      NOTE
